@@ -61,13 +61,15 @@ define([
 
       let content = contentbody;
       let passed = false;
+	  
+	  const percent = (100/this.model.get('_screens').length) * screensCorrect;
 
       if(screensCorrect >= screensForBonus) {
 
         points += bonusPoints;
         
         content = alternatecontent;
-        content = content.replace('{0}','' + this.setWordPoints(points) + '');
+        content = content.replace('{0}','' + percent + '');
 
         this.$('.quizresults__image').attr('src', '' + alternategraphic + '');
 
@@ -81,7 +83,7 @@ define([
         if(screensCorrect >= showQ && screensCorrect !== this.model.get('_screens').length) {
 
           content = contentbodyalmost;
-          content = content.replace('{0}','' + this.setWordPoints(points) + '');
+          content = content.replace('{0}','' + percent + '');
 
           //list the incorrect questions (4/5 correct)
           content += '<ul>';
@@ -99,7 +101,7 @@ define([
 
       } else {
 
-        content = content.replace('{0}','' + this.setWordPoints(points) + '');
+        content = content.replace('{0}','' + percent + '');
         this.$('.quizresults__image').attr('src', '' + graphic + '');
 
         this.$('.quizresults__button').removeClass('is-hidden');
@@ -120,7 +122,7 @@ define([
       this.$('.component__body-inner').html(content);
 
       //Adapt.offlineStorage.set('leadership_value', points);
-      const percent = (100/this.model.get('_screens').length) * screensCorrect;
+      
       //Adapt.offlineStorage.set('score', percent);
       Adapt.offlineStorage.set("score", percent, 0, 100);
 
@@ -135,12 +137,13 @@ define([
             Adapt.trigger('audio:feedback', {src: this.model.get('_pass_audio')._src});
           }
         }
+
       } else {
 
         //audio?
         if (Adapt.config.get('_sound')._isActive === true) {
-          if (this.model.get('_fail__audio')) {
-            Adapt.trigger('audio:feedback', {src: this.model.get('_fail__audio')._src});
+          if (this.model.get('_fail_audio')) {
+            Adapt.trigger('audio:feedback', {src: this.model.get('_fail_audio')._src});
           }
         }
         
