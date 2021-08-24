@@ -30,29 +30,58 @@
       "help": "This is the instruction text",
       "translatable": true
     },
+    "buttonTitle": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the title of the retry button",
+      "translatable": true
+    },
     "alternate_body": {
       "type": "string",
       "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "",
       "translatable": true
     },
     "_bonus_points": {
       "type": "number",
       "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "",
       "translatable": false
     },
     "_screen_points": {
       "type": "number",
       "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "",
       "translatable": false
     },
     "_completion_points": {
       "type": "number",
       "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "",
       "translatable": false
     },
     "_bonus_screens": {
       "type": "number",
       "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "",
       "translatable": false
     },
     "_graphic": {
